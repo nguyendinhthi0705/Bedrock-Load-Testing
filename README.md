@@ -32,17 +32,28 @@ bedrock-load-testing/
 
 ## Cài đặt
 
-1. Cài đặt dependencies:
+1. Tạo và kích hoạt môi trường ảo với Python 3.12:
+```bash
+# Tạo môi trường ảo với Python 3.12
+python3.12 -m venv myenv
+
+# Kích hoạt môi trường ảo
+source myenv/bin/activate  # Trên Linux/macOS
+# hoặc
+myenv\Scripts\activate     # Trên Windows
+```
+
+2. Cài đặt dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-2. Cấu hình AWS credentials:
+3. Cấu hình AWS credentials:
 ```bash
 aws configure
 ```
 
-3. Cập nhật file cấu hình trong thư mục `config/`
+4. Cập nhật file cấu hình trong thư mục `config/`
 
 ## Các loại test
 
@@ -110,6 +121,29 @@ Các báo cáo được tạo tự động trong thư mục `reports/`:
 3. **Test in Non-Production**: Sử dụng environment riêng biệt
 4. **Cleanup Resources**: Dọn dẹp resources sau khi test
 5. **Document Results**: Lưu trữ kết quả để so sánh
+
+## Yêu cầu về phiên bản Python
+
+Dự án này yêu cầu Python 3.12 hoặc cao hơn. Nếu bạn đang sử dụng môi trường ảo cũ với phiên bản Python khác, bạn có thể cập nhật như sau:
+
+```bash
+# Tạo môi trường mới với Python 3.12
+python3.12 -m venv new_env
+
+# Kích hoạt môi trường mới
+source new_env/bin/activate
+
+# Cài đặt dependencies
+pip install -r requirements.txt
+
+# Sau khi kiểm tra mọi thứ hoạt động tốt, bạn có thể đổi tên môi trường
+# Thoát khỏi môi trường hiện tại
+deactivate
+
+# Đổi tên môi trường
+mv myenv myenv_old_backup
+mv new_env myenv
+```
 
 ## Lưu ý quan trọng
 
