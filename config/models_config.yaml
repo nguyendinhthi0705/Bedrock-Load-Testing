@@ -1,0 +1,114 @@
+# Cấu hình các Foundation Models để test
+foundation_models:
+  # Claude Models
+  claude_3_5_sonnet:
+    model_id: "anthropic.claude-3-5-sonnet-20241022-v2:0"
+    max_tokens: 4096
+    temperature: 0.7
+    top_p: 0.9
+    pricing:
+      input_tokens: 0.003  # per 1K tokens
+      output_tokens: 0.015 # per 1K tokens
+  
+  claude_3_5_haiku:
+    model_id: "anthropic.claude-3-5-haiku-20241022-v1:0"
+    max_tokens: 4096
+    temperature: 0.7
+    top_p: 0.9
+    pricing:
+      input_tokens: 0.0008 # per 1K tokens
+      output_tokens: 0.004  # per 1K tokens
+  
+  claude_3_opus:
+    model_id: "anthropic.claude-3-opus-20240229-v1:0"
+    max_tokens: 4096
+    temperature: 0.7
+    top_p: 0.9
+    pricing:
+      input_tokens: 0.015  # per 1K tokens
+      output_tokens: 0.075 # per 1K tokens
+
+  # Amazon Titan Models
+  titan_text_express:
+    model_id: "amazon.titan-text-express-v1"
+    max_tokens: 4096
+    temperature: 0.7
+    top_p: 0.9
+    pricing:
+      input_tokens: 0.0008 # per 1K tokens
+      output_tokens: 0.0016 # per 1K tokens
+  
+  titan_text_lite:
+    model_id: "amazon.titan-text-lite-v1"
+    max_tokens: 4096
+    temperature: 0.7
+    top_p: 0.9
+    pricing:
+      input_tokens: 0.0003 # per 1K tokens
+      output_tokens: 0.0004 # per 1K tokens
+
+  # Meta Llama Models
+  llama3_2_90b:
+    model_id: "meta.llama3-2-90b-instruct-v1:0"
+    max_tokens: 4096
+    temperature: 0.7
+    top_p: 0.9
+    pricing:
+      input_tokens: 0.002  # per 1K tokens
+      output_tokens: 0.002 # per 1K tokens
+  
+  llama3_2_11b:
+    model_id: "meta.llama3-2-11b-instruct-v1:0"
+    max_tokens: 4096
+    temperature: 0.7
+    top_p: 0.9
+    pricing:
+      input_tokens: 0.00035 # per 1K tokens
+      output_tokens: 0.0014  # per 1K tokens
+
+# Cấu hình Embedding Models
+embedding_models:
+  titan_embeddings_v2:
+    model_id: "amazon.titan-embed-text-v2:0"
+    dimensions: 1024
+    pricing:
+      per_1k_tokens: 0.0001
+  
+  cohere_embed_english:
+    model_id: "cohere.embed-english-v3"
+    dimensions: 1024
+    pricing:
+      per_1k_tokens: 0.0001
+
+# Cấu hình Knowledge Base
+knowledge_base:
+  # Thay thế bằng KB ID thực tế
+  kb_id: "YOUR_KNOWLEDGE_BASE_ID"
+  
+  # Cấu hình retrieval
+  retrieval_config:
+    numberOfResults: 10
+    
+  # Cấu hình generation
+  generation_config:
+    inferenceConfig:
+      textInferenceConfig:
+        maxTokens: 2048
+        temperature: 0.7
+        topP: 0.9
+
+# Cấu hình Agent
+agent:
+  # Thay thế bằng Agent ID thực tế
+  agent_id: "YOUR_AGENT_ID"
+  agent_alias_id: "TSTALIASID"
+  
+  # Cấu hình session
+  session_config:
+    sessionTtl: 3600
+
+# Cấu hình Guardrails
+guardrails:
+  # Thay thế bằng Guardrail ID thực tế
+  guardrail_id: "YOUR_GUARDRAIL_ID"
+  guardrail_version: "DRAFT"

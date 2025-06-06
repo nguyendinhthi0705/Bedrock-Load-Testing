@@ -1,0 +1,64 @@
+# Cấu hình chung cho load testing
+aws:
+  region: "us-east-1"
+  profile: "default"
+
+# Cấu hình load testing
+load_test:
+  # Số lượng concurrent users
+  concurrent_users: [1, 5, 10, 20, 50, 100]
+  
+  # Thời gian test (giây)
+  test_duration: 300
+  
+  # Ramp up time (giây)
+  ramp_up_time: 60
+  
+  # Số requests tối đa
+  max_requests: 1000
+  
+  # Timeout cho mỗi request (giây)
+  request_timeout: 30
+  
+  # Delay giữa các requests (giây)
+  request_delay: 0.1
+
+# Cấu hình monitoring
+monitoring:
+  # Interval thu thập metrics (giây)
+  metrics_interval: 5
+  
+  # Enable CloudWatch metrics
+  cloudwatch_enabled: true
+  
+  # Enable cost tracking
+  cost_tracking: true
+  
+  # Enable resource monitoring
+  resource_monitoring: true
+
+# Cấu hình báo cáo
+reporting:
+  # Thư mục output
+  output_dir: "reports"
+  
+  # Format báo cáo
+  formats: ["html", "json", "csv"]
+  
+  # Include charts
+  include_charts: true
+  
+  # Include cost analysis
+  include_cost_analysis: true
+
+# Cấu hình retry
+retry:
+  max_retries: 3
+  backoff_factor: 2
+  retry_on_throttle: true
+
+# Cấu hình logging
+logging:
+  level: "INFO"
+  file: "bedrock_load_test.log"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
